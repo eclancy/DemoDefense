@@ -9,7 +9,7 @@ public class Enemy1Controller : MonoBehaviour
     private int PathStep = 0;
     private int MovementSpeed = 2;
     private double MaxHealth = 100;
-    private double CurrentHealth = 50;
+    public double CurrentHealth = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +75,7 @@ public class Enemy1Controller : MonoBehaviour
         else
         {
             Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
-            float Transparency = 255 * ((1 / (float)MaxHealth) * (float)CurrentHealth);
+            float Transparency = ((1 / (float)MaxHealth) * (float)CurrentHealth);
             tmp.a = Transparency;
             gameObject.GetComponent<SpriteRenderer>().color = tmp;
         }

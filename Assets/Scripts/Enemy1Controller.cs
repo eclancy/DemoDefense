@@ -8,6 +8,8 @@ public class Enemy1Controller : MonoBehaviour
     private string CurrentDirection;
     private int PathStep = 0;
     private int MovementSpeed = 2;
+    private int MaxHealth = 100;
+    private int CurrentHealth = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -59,5 +61,23 @@ public class Enemy1Controller : MonoBehaviour
         { EnemyBody.AddForce(new Vector2(0, MovementSpeed), ForceMode2D.Impulse); }
         if(Direction == "Down")
         { EnemyBody.AddForce(new Vector2(0, (MovementSpeed * -1)), ForceMode2D.Impulse); }
+    }
+
+    public void TakeDamage(string DamageType, int DamageAmount)
+    {
+        if(DamageType == "Fire") { CurrentHealth = CurrentHealth - (DamageAmount*1.5); }
+        else { CurrentHealth = CurrentHealth - DamageAmount; }
+
+        if(CurrentHealth <= 0) 
+        { 
+            Destroy(gameObject); 
+        }
+        else
+        {
+            Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
+            float Transparency = 255 * ((1 / MaxHealth) * CurrentHealth);
+            tmp.a = Transparency;
+            gameObject.GetComponent<SpriteRenderer>().color = tmp;
+        }
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5368016826419548826}
   - component: {fileID: 3343779751222185841}
   - component: {fileID: 343881728365723356}
-  - component: {fileID: -7231779234973140563}
+  - component: {fileID: 7206143990924176773}
   - component: {fileID: -1330355915174601223}
   m_Layer: 0
   m_Name: Tower
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-7231779234973140563
+--- !u!114 &7206143990924176773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3534948463334892008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 663251b8787716e4f9f3dc47b860dcc0, type: 3}
+  m_Script: {fileID: 11500000, guid: f04758f344f59ab4b97d312348334bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []

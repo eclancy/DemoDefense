@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerShoot : MonoBehaviour
+public class Quake : MonoBehaviour
 {
     public GameObject[] enemies;
     AudioSource audioData;
 
     void Start()
     {
-        InvokeRepeating("destroy", 3, 3);
+        InvokeRepeating("AttackEnemies", 3, 3);
         audioData = GetComponent<AudioSource>();
     }
 
@@ -17,7 +17,7 @@ public class TowerShoot : MonoBehaviour
     {
     }
 
-    void destroy()
+    void AttackEnemies()
     {
         audioData.Play(0);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -26,7 +26,8 @@ public class TowerShoot : MonoBehaviour
         {
             if ( Vector3.Distance(gameObject.transform.position, enemy.transform.position) < 5 )
             {
-                Destroy (enemy);
+                Enemy1Controller enemyScript = (Enemy1Controller) enemy.GetComponent(typeof(Enemy1Controller));
+                enemyScript.TakeDamage("Earth", 20);
             }
         }
     }

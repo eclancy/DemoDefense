@@ -7,7 +7,7 @@ public class Enemy1Controller : MonoBehaviour
     private Rigidbody2D EnemyBody;
     private string CurrentDirection;
     private int PathStep = 0;
-    private int MovementSpeed = 1;
+    private int MovementSpeed = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -23,24 +23,30 @@ public class Enemy1Controller : MonoBehaviour
         double XLocation = EnemyBody.position.x;
         double YLocation = EnemyBody.position.y;
 
-        if(XLocation > -4.45 && PathStep == 0)
+        if(XLocation > -4.55 && PathStep == 0)
         { Move("Up"); PathStep = 1; }
         else if(YLocation > 2.5 && PathStep == 1)
         { Move("Right"); PathStep = 2; }
-        else if(XLocation > -1.5 && PathStep == 2)
+        else if(XLocation > -1.55 && PathStep == 2)
         { Move("Down"); PathStep = 3; }
-        else if (YLocation > -1.5 && PathStep == 3)
+        else if (YLocation < -1.5 && PathStep == 3)
         { Move("Right"); PathStep = 4; }
-
-
+        else if (XLocation > 2.5 && PathStep == 4)
+        { Move("Up"); PathStep = 5; }
+        else if (YLocation > 0.5 && PathStep == 5)
+        { Move("Right"); PathStep = 6; }
+        else if (XLocation > 9.0 && PathStep == 6)
+        { Move("Stop"); PathStep = 7; }
     }
-
-    //Path 3 right, 3 up, 3 right, 4 down, 4 right, 2 up, 6 right
+    //Map One Pathing Cords
     // -4.5, -0.5
     // -4.5, 2.5
     // -1.5, 2.5
     // -1.5, -1.5
-    // -1.5, 2.5
+    // 2.5, -1.5
+    // 2.5, 0.5
+    // 9.0, 0.5
+
     void Move(string Direction)
     {
         CurrentDirection = Direction;

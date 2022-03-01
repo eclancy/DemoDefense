@@ -40,6 +40,7 @@ public class Enemy1Controller : MonoBehaviour
     // -4.5, 2.5
     // -1.5, 2.5
     // -1.5, -1.5
+    // -1.5, 2.5
     void Move(string Direction)
     {
         CurrentDirection = Direction;

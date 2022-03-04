@@ -18,11 +18,6 @@ public class Enemy1Controller : MonoBehaviour
         Move("Right");
     }
 
-    private void OnTriggerEnter(Collider enemy)
-    {
-        print(enemy);
-    }
-
     // Update is called once per frame
     void Update()
     {

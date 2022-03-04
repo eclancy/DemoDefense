@@ -14,15 +14,18 @@ public class PlayerStats : MonoBehaviour
         this.currency = 50;
     }
 
-    void takeDamage(int damage){
+    public void takeDamage(int damage){
         this.health -= damage;
+        if(this.health <= 0){
+            print("ya fked up boi");
+        }
     }
 
-    void spendCurrency(int cost){
+    public void spendCurrency(int cost){
         this.currency -= cost;
     }
 
-    void receiveCurrency(int currency){
+    public void receiveCurrency(int currency){
         this.currency += currency;
     }
 

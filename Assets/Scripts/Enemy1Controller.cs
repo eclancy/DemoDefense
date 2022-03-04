@@ -7,7 +7,7 @@ public class Enemy1Controller : MonoBehaviour
     private Rigidbody2D EnemyBody;
     private string CurrentDirection;
     private int PathStep = 0;
-    private int MovementSpeed = 2;
+    private int MovementSpeed = 10;
     private double MaxHealth = 100;
     public double CurrentHealth = 100;
 
@@ -15,7 +15,6 @@ public class Enemy1Controller : MonoBehaviour
     void Start()
     {
         EnemyBody = gameObject.GetComponent<Rigidbody2D>();
-
         Move("Right");
     }
 

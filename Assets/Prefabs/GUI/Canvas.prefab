@@ -27,8 +27,8 @@ RectTransform:
   m_GameObject: {fileID: 1683116929733383757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8172899640391926929}
   m_RootOrder: 0
@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2512782635933007325}
   - component: {fileID: 5948267779815388875}
   - component: {fileID: 6511492141146300838}
+  - component: {fileID: 8100680059268823231}
   m_Layer: 5
   m_Name: GUIPanel
   m_TagString: Untagged
@@ -172,6 +173,20 @@ MonoBehaviour:
   PlayerStats: {fileID: 2807727156418621366, guid: e372a8eab7942ba43bc26ab47a041129, type: 3}
   HealthTextObj: {fileID: 5564573980799577715}
   CurrencyTextObj: {fileID: 8843309039676305658}
+--- !u!114 &8100680059268823231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720359948147926204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13398fc2fa897f49866ed1f1505b60b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  currency: 50
 --- !u!1 &2945937040240082304
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +316,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.2602539, w: 0.043715954}
+  m_margin: {x: 0, y: 10.259003, z: 0.2602539, w: 10.069565}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

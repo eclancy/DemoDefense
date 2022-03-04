@@ -6,14 +6,12 @@ public class PlayerNexus : MonoBehaviour
 {
     public PlayerStats PlayerStats;
 
-    private void OnTriggerEnter(Collider enemy)
+    private void OnTriggerEnter2D(Collider2D enemy)
     {
-        Debug.Log("ahh");
-        Debug.Log(enemy);
-        // if (enemy.tag == "Enemy")
-        // {
-        //     PlayerStats.takeDamage(10);
-        //     Destroy(enemy.gameObject);
-        // }
+        if (enemy.tag == "Enemy")
+        {
+            PlayerStats.takeDamage(10);
+            Destroy(enemy.gameObject);
+        }
     }
 }

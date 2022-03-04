@@ -5,29 +5,20 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
 
-    private playerHealth;
-    private playerCurrency;
-
+    public int health;
+    public int currency;
 
     void Start()
     {
-        this.playerHealth = 100;
-        this.playerCurrency = 50;
-    }
-
-    int getHealth(){
-        return this.playerHealth;
-    }
-
-    int getCurrency(){
-        return this.playerCurrency;
+        this.health = 100;
+        this.currency = 50;
     }
 
     void takeDamage(int damage){
         this.health -= damage;
     }
 
-     void spendCurrency(int cost){
+    void spendCurrency(int cost){
         this.currency -= cost;
     }
 

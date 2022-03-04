@@ -24,23 +24,23 @@ public class Enemy1Controller : MonoBehaviour
         double XLocation = EnemyBody.position.x;
         double YLocation = EnemyBody.position.y;
 
-        if(XLocation > -4.55 && PathStep == 0)
+        if(XLocation > -84.78 && PathStep == 0)
         { Move("Up"); PathStep = 1; }
-        else if(YLocation > 2.5 && PathStep == 1)
+        else if(YLocation > 43.14 && PathStep == 1)
         { Move("Right"); PathStep = 2; }
-        else if(XLocation > -1.55 && PathStep == 2)
+        else if(XLocation > -66.1 && PathStep == 2)
         { Move("Down"); PathStep = 3; }
-        else if (YLocation < -1.5 && PathStep == 3)
+        else if (YLocation < 20.26 && PathStep == 3)
         { Move("Right"); PathStep = 4; }
-        else if (XLocation > 2.5 && PathStep == 4)
+        else if (XLocation > -41.67 && PathStep == 4)
         { Move("Up"); PathStep = 5; }
-        else if (YLocation > 0.5 && PathStep == 5)
+        else if (YLocation > 31.39 && PathStep == 5)
         { Move("Right"); PathStep = 6; }
-        else if (XLocation > 9.0 && PathStep == 6)
+        else if (XLocation > -3.7 && PathStep == 6)
         { Move("Stop"); PathStep = 7; }
     }
     //Map One Pathing Cords
-    // -4.5, -0.5
+    // -84.78, 26.25
     // -4.5, 2.5
     // -1.5, 2.5
     // -1.5, -1.5

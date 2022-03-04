@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private playerHealth;
+    private playerCurrency;
+
+
     void Start()
     {
-        
+        this.playerHealth = 100;
+        this.playerCurrency = 50;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    int getHealth(){
+        return this.playerHealth;
     }
+
+    int getCurrency(){
+        return this.playerCurrency;
+    }
+
+    void takeDamage(int damage){
+        this.health -= damage;
+    }
+
+     void spendCurrency(int cost){
+        this.currency -= cost;
+    }
+
+    void receiveCurrency(int currency){
+        this.currency += currency;
+    }
+
+    
 }

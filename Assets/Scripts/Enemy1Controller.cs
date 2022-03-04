@@ -5,76 +5,68 @@ using UnityEngine;
 public class Enemy1Controller : MonoBehaviour
 {
     private Rigidbody2D EnemyBody;
+
     private string CurrentDirection;
+
     private int PathStep = 0;
+
     private int MovementSpeed = 10;
+
     private double MaxHealth = 100;
+
     public double CurrentHealth = 100;
 
-    // Start is called before the first frame update
+    private GameObject[] waypoints;
+
+    private GameObject targetWaypoint;
+
     void Start()
     {
-        EnemyBody = gameObject.GetComponent<Rigidbody2D>();
-        Move("Right");
+        Debug.Log(transform.parent.GetComponent<WaypointReference>().GetWaypoints());
+        // waypoints = gameObject.transform.parent.GetComponent<GetWaypoints>();
+        // targetWaypoint = waypoints[0];
+        Debug.Log (waypoints);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        double XLocation = EnemyBody.position.x;
-        double YLocation = EnemyBody.position.y;
+                Debug.Log(transform.parent.GetComponent<WaypointReference>().GetWaypoints());
 
-        if(XLocation > -84.78 && PathStep == 0)
-        { Move("Up"); PathStep = 1; }
-        else if(YLocation > 43.14 && PathStep == 1)
-        { Move("Right"); PathStep = 2; }
-        else if(XLocation > -66.1 && PathStep == 2)
-        { Move("Down"); PathStep = 3; }
-        else if (YLocation < 20.26 && PathStep == 3)
-        { Move("Right"); PathStep = 4; }
-        else if (XLocation > -41.67 && PathStep == 4)
-        { Move("Up"); PathStep = 5; }
-        else if (YLocation > 31.39 && PathStep == 5)
-        { Move("Right"); PathStep = 6; }
-        else if (XLocation > -3.7 && PathStep == 6)
-        { Move("Stop"); PathStep = 7; }
+        // if (transform.position == targetWaypoint.position)
+        // {
+        //     //update target
+        //     Move ();
+        // }
     }
-    //Map One Pathing Cords
-    // -84.78, 26.25
-    // -4.5, 2.5
-    // -1.5, 2.5
-    // -1.5, -1.5
-    // 2.5, -1.5
-    // 2.5, 0.5
-    // 9.0, 0.5
 
-    void Move(string Direction)
+    void Move()
     {
-        CurrentDirection = Direction;
         EnemyBody.velocity = new Vector2(0, 0);
-        if (Direction == "Right")
-        { EnemyBody.AddForce(new Vector2(MovementSpeed, 0), ForceMode2D.Impulse); }
-        if(Direction == "Left")
-        { EnemyBody.AddForce(new Vector2((MovementSpeed * -1), 0), ForceMode2D.Impulse); }
-        if(Direction == "Up")
-        { EnemyBody.AddForce(new Vector2(0, MovementSpeed), ForceMode2D.Impulse); }
-        if(Direction == "Down")
-        { EnemyBody.AddForce(new Vector2(0, (MovementSpeed * -1)), ForceMode2D.Impulse); }
+        // GetComponent<Rigidbody>()
+        //     .AddForce((targetWaypoint.transform.position - transform.position) *
+        //     MovementSpeed);
     }
 
     public void TakeDamage(string DamageType, double DamageAmount)
     {
-        if(DamageType == "Fire") { CurrentHealth = CurrentHealth - (DamageAmount*1.5); }
-        else { CurrentHealth = CurrentHealth - DamageAmount; }
+        if (DamageType == "Fire")
+        {
+            CurrentHealth = CurrentHealth - (DamageAmount * 1.5);
+        }
+        else
+        {
+            CurrentHealth = CurrentHealth - DamageAmount;
+        }
 
-        if(CurrentHealth <= 0) 
-        { 
-            Destroy(gameObject); 
+        if (CurrentHealth <= 0)
+        {
+            Destroy (gameObject);
         }
         else
         {
             Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
-            float Transparency = ((1 / (float)MaxHealth) * (float)CurrentHealth);
+            float Transparency =
+                ((1 / (float) MaxHealth) * (float) CurrentHealth);
             tmp.a = Transparency;
             gameObject.GetComponent<SpriteRenderer>().color = tmp;
         }

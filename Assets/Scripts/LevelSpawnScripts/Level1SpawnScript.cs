@@ -9,7 +9,7 @@ public class Level1SpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spawner.Spawn(SpawnName:"Circle", SpawnCount:5, SpawnDelay: 1);
+        Spawner.Spawn(SpawnName:"Circle", SpawnCount:1, SpawnDelay: 1);
     }
 
 }

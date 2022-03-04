@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
 
     public void SpawnCircle()
     {
-        Instantiate(CircleEnemyPrefab, SpawnerBody.position, Quaternion.identity);
+        Instantiate(CircleEnemyPrefab, SpawnerBody.position, Quaternion.identity, SpawnerBody);
         CircleSpawnCount++;
     }
 

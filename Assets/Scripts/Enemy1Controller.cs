@@ -4,47 +4,50 @@ using UnityEngine;
 
 public class Enemy1Controller : MonoBehaviour
 {
-    private Rigidbody2D EnemyBody;
+    private Rigidbody2D rigidBody;
 
     private string CurrentDirection;
 
-    private int PathStep = 0;
+    private int PathStep = 1;
 
-    private int MovementSpeed = 10;
+    private float MovementSpeed = 1;
 
     private double MaxHealth = 100;
 
     public double CurrentHealth = 100;
 
-    private GameObject[] waypoints;
+    private Transform[] waypoints;
 
-    private GameObject targetWaypoint;
+    private Transform targetWaypoint;
 
     void Start()
     {
-        Debug.Log(transform.parent.GetComponent<WaypointReference>().GetWaypoints());
-        // waypoints = gameObject.transform.parent.GetComponent<GetWaypoints>();
-        // targetWaypoint = waypoints[0];
-        Debug.Log (waypoints);
+        this.rigidBody = gameObject.GetComponent<Rigidbody2D>();
+
+        waypoints = transform.parent.GetComponent<WaypointReference>().GetWaypoints();
+        targetWaypoint = waypoints[PathStep];
+        Move();
+
+        Debug.Log(targetWaypoint);
+
     }
 
     void Update()
     {
-                Debug.Log(transform.parent.GetComponent<WaypointReference>().GetWaypoints());
 
-        // if (transform.position == targetWaypoint.position)
-        // {
-        //     //update target
-        //     Move ();
-        // }
+        if (Vector3.Distance(transform.position, targetWaypoint.transform.position) < 0.1f)
+        {
+            PathStep++;
+            targetWaypoint = waypoints[PathStep];
+            Debug.Log(targetWaypoint);
+            Move ();
+        }
     }
 
     void Move()
     {
-        EnemyBody.velocity = new Vector2(0, 0);
-        // GetComponent<Rigidbody>()
-        //     .AddForce((targetWaypoint.transform.position - transform.position) *
-        //     MovementSpeed);
+        rigidBody.velocity = new Vector2(0, 0);
+        rigidBody.AddForce( (targetWaypoint.transform.position - transform.position) * MovementSpeed, ForceMode2D.Impulse );
     }
 
     public void TakeDamage(string DamageType, double DamageAmount)

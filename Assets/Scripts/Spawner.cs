@@ -4,40 +4,38 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject CircleEnemyPrefab;
+    public GameObject BasicEnemyPrefab;
     private Transform SpawnerBody;
-    private int CircleSpawnCount;
-    private int CircleSpawnTarget = 0;
+    private int EnemySpawnCount;
+    private int EnemySpawnTarget = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         SpawnerBody = gameObject.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(CircleSpawnCount >= CircleSpawnTarget)
+        if(EnemySpawnCount >= EnemySpawnTarget)
         {
-            CancelInvoke("SpawnCircle");
+            CancelInvoke("SpawnEnemy");
         }
     }
 
     public void Spawn(string SpawnName, int SpawnCount, float SpawnDelay)
     {
-        if(SpawnName == "Circle")
+        if(SpawnName == "BasicEnemy")
         {
-            CircleSpawnTarget = SpawnCount;
-            InvokeRepeating("SpawnCircle", 1, SpawnDelay);
+            EnemySpawnTarget = SpawnCount;
+            InvokeRepeating("SpawnEnemy", 1, SpawnDelay);
         }
 
     }
 
-    public void SpawnCircle()
+    public void SpawnEnemy()
     {
-        Instantiate(CircleEnemyPrefab, SpawnerBody.position, Quaternion.identity, SpawnerBody);
-        CircleSpawnCount++;
+        Instantiate(BasicEnemyPrefab, SpawnerBody.position, Quaternion.identity, SpawnerBody);
+        EnemySpawnCount++;
     }
 
 }

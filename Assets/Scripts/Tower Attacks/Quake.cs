@@ -19,7 +19,9 @@ public class Quake : MonoBehaviour
 
     void AttackEnemies()
     {
+        StartCoroutine(playAttackAnimation());
         audioData.Play(0);
+ 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies)
@@ -31,5 +33,12 @@ public class Quake : MonoBehaviour
             }
         }
     }
+
+    IEnumerator playAttackAnimation(){
+        GetComponent<ParticleSystem>().Play(true);
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmitting);
+    }
+    
 }
 

@@ -31,7 +31,7 @@ public class Enemy1Controller : MonoBehaviour
 
     void Update()
     {
-        if ( Vector3.Distance(transform.position, targetWaypoint.transform.position) < 1.0f ) {
+        if ( Vector3.Distance(transform.position, targetWaypoint.transform.position) < 0.1f ) {
             PathStep++;
             targetWaypoint = waypoints[PathStep];
             Move();
@@ -43,11 +43,11 @@ public class Enemy1Controller : MonoBehaviour
         //reset the velocity
         rigidBody.velocity = new Vector2(0, 0);
 
-        //reassign which direction "right" is
-        transform.right = targetWaypoint.position - transform.position;
+        //reassign which direction "up" is
+        transform.up = targetWaypoint.position - transform.position;
 
-        //add force in the "right" direction, to move toward the next waypoint
-        rigidBody.AddForce(transform.right * 5, ForceMode2D.Impulse);
+        //add force in the "up" direction, to move toward the next waypoint
+        rigidBody.AddForce(transform.up * 5, ForceMode2D.Impulse);
 
     }
 

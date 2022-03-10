@@ -47,7 +47,7 @@ public class Enemy1Controller : MonoBehaviour
         transform.up = targetWaypoint.position - transform.position;
 
         //add force in the "up" direction, to move toward the next waypoint
-        rigidBody.AddForce(transform.up * 5, ForceMode2D.Impulse);
+        rigidBody.AddForce(transform.up * MovementSpeed, ForceMode2D.Impulse);
 
     }
 
@@ -57,7 +57,7 @@ public class Enemy1Controller : MonoBehaviour
             CurrentHealth = CurrentHealth - (DamageAmount * 1.5);
         }
         else {
-            CurrentHealth = CurrentHealth - DamageAmount;
+            CurrentHealth -= DamageAmount;
         }
 
         if (CurrentHealth <= 0) {

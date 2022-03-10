@@ -26,7 +26,7 @@ public class Quake : MonoBehaviour
 
         foreach (GameObject enemy in enemies)
         {
-            if ( Vector3.Distance(gameObject.transform.position, enemy.transform.position) < 5 )
+            if ( Vector3.Distance(gameObject.transform.position, enemy.transform.position) < 10 )
             {
                 Enemy1Controller enemyScript = (Enemy1Controller) enemy.GetComponent(typeof(Enemy1Controller));
                 enemyScript.TakeDamage("Earth", 20);

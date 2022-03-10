@@ -6,10 +6,16 @@ using UnityEngine.EventSystems;
 
 public class PurchaseScript : MonoBehaviour
 {
+    //Objects for clicking
     GraphicRaycaster Raycaster;
     PointerEventData PointerEventData;
     EventSystem EventSystem;
     public string CurrentPurchaseSelection = "None";
+
+    //Objects that can be purchased
+    public PlayerStats PlayerStats;
+    public GameObject QuakeTower;
+    public int QuakeTowerCost = 20;
 
     void Start()
     {
@@ -27,28 +33,44 @@ public class PurchaseScript : MonoBehaviour
             PointerEventData = new PointerEventData(EventSystem);
             PointerEventData.position = Input.mousePosition;
 
-            //Debug.Log("Point clicked: " + PointerEventData.position);
+            //Find where on the scene the click occured
+            Vector3 ScenePositionClicked = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            ScenePositionClicked.z = 0; //Move point infront of background
 
             //Raycast the click point to find what was clicked on the canvas
-            List<RaycastResult> results = new List<RaycastResult>();
-            Raycaster.Raycast(PointerEventData, results);
+            List<RaycastResult> CanvasHitResults = new List<RaycastResult>();
+            Raycaster.Raycast(PointerEventData, CanvasHitResults);
 
-            //Process list of what was clicked
-            foreach (RaycastResult result in results)
+            //Process list of what was clicked on the canvas
+            foreach (RaycastResult result in CanvasHitResults)
             {
                 string ClickedObjectName = result.gameObject.name;
                 //Debug.Log(result.gameObject.name + " Clicked");
 
                 //Assign Tower to be Purchased is purchase button clicked.
-                if(ClickedObjectName == "Tower1")
+                if(ClickedObjectName == "QuakeTower")
                 {
-                    Debug.Log("Buying Tower 1");
-                    CurrentPurchaseSelection = "Tower1";
+                    Debug.Log("Buying Quake Tower");
+                    CurrentPurchaseSelection = "QuakeTower";
                 }
                 if(ClickedObjectName == "Tower2")
                 {
                     Debug.Log("Buying Tower 2");
                     CurrentPurchaseSelection = "Tower2";
+                }
+            }
+
+            //Process ScenePositionClicked
+            if(
+                CurrentPurchaseSelection != "None" && //Something is selcted to be purchased
+                CanvasHitResults.Count == 0 //Canvas not clicked 
+            )
+            {
+                //Buy and place QuakeTower if able
+                if(CurrentPurchaseSelection == "QuakeTower" && PlayerStats.currency >= QuakeTowerCost)
+                {
+                    PlayerStats.currency = PlayerStats.currency - QuakeTowerCost;
+                    Instantiate(QuakeTower, ScenePositionClicked, Quaternion.identity);
                 }
             }
         }

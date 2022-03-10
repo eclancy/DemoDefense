@@ -215,8 +215,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1193.6014, y: 47.723022}
-  m_SizeDelta: {x: 586.1305, y: 95.445}
+  m_AnchoredPosition: {x: 1108.7, y: 47.723022}
+  m_SizeDelta: {x: 416.35, y: 95.445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6898607982089466688
 CanvasRenderer:
@@ -269,6 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentPurchaseSelection: None
+  PlayerStats: {fileID: 4776217902557222701}
+  QuakeTower: {fileID: 4051045980465073586, guid: 28951250c37f8c047b5aa3a4399362e5, type: 3}
+  QuakeTowerCost: 20
 --- !u!223 &3216531234338390416
 Canvas:
   m_ObjectHideFlags: 0
@@ -319,7 +322,7 @@ GameObject:
   - component: {fileID: 1119014498508000928}
   - component: {fileID: 6124039100071562650}
   m_Layer: 5
-  m_Name: Tower1Cost
+  m_Name: QuakeTower1Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -241.69, y: -0.000071619}
+  m_AnchoredPosition: {x: -160.9, y: -1.1885}
   m_SizeDelta: {x: 94.554, y: 97.822}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1119014498508000928
@@ -436,7 +439,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 16.793552, y: 19.524435, z: 18.791138, w: 19.33499}
+  m_margin: {x: 21.004503, y: 19.524435, z: 13.527599, w: 19.33499}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -665,7 +668,7 @@ GameObject:
   - component: {fileID: 4465413466989473168}
   - component: {fileID: 7011669987773518799}
   m_Layer: 5
-  m_Name: Tower1
+  m_Name: QuakeTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -243.66, y: 0.35882}
+  m_AnchoredPosition: {x: -158.93, y: 0.0000010729}
   m_SizeDelta: {x: 98.495, y: 98.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4465413466989473168
@@ -978,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -146.5, y: -0.0000078312}
+  m_AnchoredPosition: {x: -65.713, y: -0.0000019073}
   m_SizeDelta: {x: 95.82, y: 95.445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6575603979121734829
@@ -1248,7 +1251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -146.5, y: -0.000074625015}
+  m_AnchoredPosition: {x: -65.713, y: -1.5475}
   m_SizeDelta: {x: 95.8195, y: 95.445}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8836819532079376331

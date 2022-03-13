@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 public class PurchaseScript : MonoBehaviour
 {
     //Objects for clicking
-    GraphicRaycaster Raycaster;
+    GraphicRaycaster GRaycaster;
+    Physics2DRaycaster SceneRayCaster;
     PointerEventData PointerEventData;
     EventSystem EventSystem;
     public string CurrentPurchaseSelection = "None";
@@ -20,8 +21,9 @@ public class PurchaseScript : MonoBehaviour
     void Start()
     {
         //Load Components
-        Raycaster = GetComponent<GraphicRaycaster>();
+        GRaycaster = GetComponent<GraphicRaycaster>();
         EventSystem = GetComponent<EventSystem>();
+        SceneRayCaster = Camera.main.GetComponent<Physics2DRaycaster>();
     }
 
     void Update()
@@ -39,7 +41,7 @@ public class PurchaseScript : MonoBehaviour
 
             //Raycast the click point to find what was clicked on the canvas
             List<RaycastResult> CanvasHitResults = new List<RaycastResult>();
-            Raycaster.Raycast(PointerEventData, CanvasHitResults);
+            GRaycaster.Raycast(PointerEventData, CanvasHitResults);
 
             //Process list of what was clicked on the canvas
             foreach (RaycastResult result in CanvasHitResults)
@@ -60,20 +62,44 @@ public class PurchaseScript : MonoBehaviour
                 }
             }
 
-            //Process ScenePositionClicked
-            if(
-                CurrentPurchaseSelection != "None" && //Something is selcted to be purchased
-                CanvasHitResults.Count == 0 //Canvas not clicked 
-            )
+            //Raycast the click point to find what was clicked on the scene
+            List<RaycastResult> SceneHitResults = new List<RaycastResult>();
+            SceneRayCaster.Raycast(PointerEventData, SceneHitResults);
+
+            //Process list of what was clicked on the scene
+            foreach (RaycastResult result in SceneHitResults)
             {
-                //Buy and place QuakeTower if able
-                if(CurrentPurchaseSelection == "QuakeTower" && PlayerStats.currency >= QuakeTowerCost)
+                string ClickedObjectName = result.gameObject.name;
+                Debug.Log(ClickedObjectName + " Clicked");
+
+                if(
+                    ClickedObjectName.Contains("BuildSlot") //A Build Slot is clicked
+                    && CurrentPurchaseSelection != "None" //Something is selcted to be purchased
+                )
                 {
-                    PlayerStats.currency = PlayerStats.currency - QuakeTowerCost;
-                    Instantiate(QuakeTower, ScenePositionClicked, Quaternion.identity);
+                    BuildSlotScript BuildSlot = result.gameObject.GetComponent<BuildSlotScript>();
+                    if(BuildSlot.Tower == "None") //Build slot is open
+                    {
+                        //Buy and place QuakeTower in build slot if able
+                        if(CurrentPurchaseSelection == "QuakeTower" && PlayerStats.currency >= QuakeTowerCost)
+                        {
+                            PlayerStats.currency = PlayerStats.currency - QuakeTowerCost;
+                            Instantiate(QuakeTower, result.gameObject.transform.position, Quaternion.identity, result.gameObject.transform);
+                            BuildSlot.Tower = "QuakeTower";
+                            BuildSlot.TowerLevel = 1;
+                        }
+                    }
+                    else
+                    {
+                        //Upgrade Tower TODO
+                    }
                 }
+
             }
+
         }
+
+        //Check if the right Mouse button is clicked
         if (Input.GetMouseButtonDown(1))
         {
             Debug.Log("Clear Selected Buy");

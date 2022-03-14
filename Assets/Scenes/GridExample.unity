@@ -1558,7 +1558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131194115}
   m_Layer: 0
-  m_Name: Row0 (11)
+  m_Name: Row11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1930,7 +1930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147654352}
   m_Layer: 0
-  m_Name: Row0 (3)
+  m_Name: Row3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7590,7 +7590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 778449002}
   m_Layer: 0
-  m_Name: Row0 (6)
+  m_Name: Row6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7927,7 +7927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798111568}
   m_Layer: 0
-  m_Name: Row0 (5)
+  m_Name: Row5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8143,7 +8143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 813281529}
   m_Layer: 0
-  m_Name: Row0 (1)
+  m_Name: Row1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13158,7 +13158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376553808}
   m_Layer: 0
-  m_Name: Row0 (9)
+  m_Name: Row9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16534,7 +16534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718898268}
   m_Layer: 0
-  m_Name: Row0 (12)
+  m_Name: Row12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18789,7 +18789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899067850}
   m_Layer: 0
-  m_Name: Row0 (8)
+  m_Name: Row8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18988,7 +18988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920574905}
   m_Layer: 0
-  m_Name: Row0 (2)
+  m_Name: Row2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19399,6 +19399,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2495174951982197554, guid: e8775ea6428546242a0b5adb94e045f2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495174951982197554, guid: e8775ea6428546242a0b5adb94e045f2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495174951982197554, guid: e8775ea6428546242a0b5adb94e045f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -19596,7 +19604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1965257965}
   m_Layer: 0
-  m_Name: Row0 (10)
+  m_Name: Row10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20799,7 +20807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2064850966}
   m_Layer: 0
-  m_Name: Row0 (7)
+  m_Name: Row7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21788,7 +21796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141152110}
   m_Layer: 0
-  m_Name: Row0 (4)
+  m_Name: Row4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22219,6 +22227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6289383864867009991}
+  - component: {fileID: 6289383864867009992}
   m_Layer: 0
   m_Name: TilesGrid
   m_TagString: Untagged
@@ -22583,6 +22592,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6289383864867009992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243711086496915666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6c0104c9afc1841a3d8e276171be58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6450877763476108379
 PrefabInstance:
   m_ObjectHideFlags: 0

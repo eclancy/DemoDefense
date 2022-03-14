@@ -77,7 +77,7 @@ public class PurchaseScript : MonoBehaviour
                     && CurrentPurchaseSelection != "None" //Something is selcted to be purchased
                 )
                 {
-                    BuildSlotScript BuildSlot = result.gameObject.GetComponent<BuildSlotScript>();
+                    TowerBuildTileScript BuildSlot = result.gameObject.GetComponent<TowerBuildTileScript>();
                     if(BuildSlot.Tower == "None") //Build slot is open
                     {
                         //Buy and place QuakeTower in build slot if able

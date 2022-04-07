@@ -12,7 +12,7 @@ public class Quake : MonoBehaviour
         // Find the tiles grid game object, access the script to get where
         // this gameobject is located, get all adjacent tiles?
 
-        InvokeRepeating("AttackEnemies", 3, 3);
+        InvokeRepeating("AttackEnemies", 0, 3);
         audioData = GetComponent<AudioSource>();
     }
 

@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 public class PurchaseScript : MonoBehaviour
 {
+    //Debug
+    private bool DebugFlag = false;
+
     //Objects for clicking
     GraphicRaycaster GRaycaster;
     Physics2DRaycaster SceneRayCaster;
@@ -49,17 +52,17 @@ public class PurchaseScript : MonoBehaviour
             {
                 GUIClicked = true;
                 string ClickedObjectName = result.gameObject.name;
-                //Debug.Log(result.gameObject.name + " Clicked");
+                if(DebugFlag){Debug.Log(result.gameObject.name + " Clicked");}
 
                 //Assign Tower to be Purchased is purchase button clicked.
                 if(ClickedObjectName == "QuakeTower")
                 {
-                    Debug.Log("Buying Quake Tower");
+                    if(DebugFlag){Debug.Log("Buying Quake Tower");}
                     CurrentPurchaseSelection = "QuakeTower";
                 }
                 if(ClickedObjectName == "Tower2")
                 {
-                    Debug.Log("Buying Tower 2");
+                    if(DebugFlag){Debug.Log("Buying Tower 2");}
                     CurrentPurchaseSelection = "Tower2";
                 }
             }
@@ -74,7 +77,7 @@ public class PurchaseScript : MonoBehaviour
                 foreach (RaycastResult result in SceneHitResults)
                 {
                     string ClickedObjectName = result.gameObject.name;
-                    Debug.Log(ClickedObjectName + " Clicked");
+                    if(DebugFlag){Debug.Log(ClickedObjectName + " Clicked");}
 
                     if(
                         ClickedObjectName.Contains("BuildSlot") //A Build Slot is clicked
@@ -106,7 +109,7 @@ public class PurchaseScript : MonoBehaviour
         //Check if the right Mouse button is clicked
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Clear Selected Buy");
+            if(DebugFlag){Debug.Log("Clear Selected Buy");}
             CurrentPurchaseSelection = "None";
         }
     }

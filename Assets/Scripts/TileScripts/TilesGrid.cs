@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TilesGrid : MonoBehaviour
 {
+    private bool DebugFlag = false;
     private List<List<Transform>> TilesGridReference = new List<List<Transform>>();
 
     void Start()
@@ -28,7 +29,7 @@ public class TilesGrid : MonoBehaviour
         //add final row
         TilesGridReference.Add(TempRowArray);
 
-        Debug.Log(TilesGridReference[2][1]);
+        if(DebugFlag){Debug.Log(TilesGridReference[2][1]);}
     }
 
     

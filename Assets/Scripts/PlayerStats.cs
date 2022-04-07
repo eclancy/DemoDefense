@@ -10,8 +10,8 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        this.health = 100;
-        this.currency = 50;
+        if(this.health == 0){this.health = 100;}
+        if(this.currency == 0){this.currency = 50;}
     }
 
     public void takeDamage(int damage){

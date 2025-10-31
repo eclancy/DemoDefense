@@ -26,10 +26,9 @@ public class Spawner : MonoBehaviour
     {
         if(SpawnName == "BasicEnemy")
         {
-            EnemySpawnTarget = SpawnCount;
+            EnemySpawnTarget += SpawnCount;
             InvokeRepeating("SpawnEnemy", 1, SpawnDelay);
         }
-
     }
 
     public void SpawnEnemy()

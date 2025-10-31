@@ -26,19 +26,19 @@ public class Enemy1Controller : MonoBehaviour
 
         waypoints = transform.parent.GetComponent<WaypointReference>().GetWaypoints();
         targetWaypoint = waypoints[PathStep]; 
-        Move();
+        ChangeMovement();
     }
 
     void Update()
     {
-        if ( Vector3.Distance(transform.position, targetWaypoint.transform.position) < 0.1f ) {
+        if ( Vector3.Distance(transform.position, targetWaypoint.transform.position) < 0.2f ) {
             PathStep++;
             targetWaypoint = waypoints[PathStep];
-            Move();
+            ChangeMovement();
         }
     }
 
-    void Move()
+    void ChangeMovement()
     {
         //reset the velocity
         rigidBody.linearVelocity = new Vector2(0, 0);
